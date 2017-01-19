@@ -2,7 +2,7 @@ package com.github.aprofromindia.weatherapp.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.github.aprofromindia.weatherapp.entities.jackson.WeatherListDeserializer;
+import com.github.aprofromindia.weatherapp.entities.deserializers.WeatherListDeserializer;
 
 import java.util.List;
 

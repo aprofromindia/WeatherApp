@@ -11,6 +11,7 @@
     </data>
 
     <android.support.v7.widget.CardView
+        android:background="@color/cardview_light_background"
         android:layout_width="match_parent"
         android:layout_height="80dp">
 
@@ -56,7 +57,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="16dp"
-                android:text="@{String.valueOf(1)}"
+                android:text="@{weather.date.toLocaleString()}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
