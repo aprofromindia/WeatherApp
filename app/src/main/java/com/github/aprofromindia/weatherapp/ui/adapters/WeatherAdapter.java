@@ -1,11 +1,9 @@
 package com.github.aprofromindia.weatherapp.ui.adapters;
 
-import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.github.aprofromindia.weatherapp.R;
 import com.github.aprofromindia.weatherapp.databinding.ItemWeatherBinding;
 import com.github.aprofromindia.weatherapp.entities.Weather;
 

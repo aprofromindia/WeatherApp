@@ -21,7 +21,7 @@ public class NetworkFragment extends Fragment {
 
     public static final String TAG = NetworkFragment.class.getSimpleName();
     private WeatherService service;
-    private WeatherList results;
+    private WeatherList weatherList;
     private Consumer<WeatherList> getConsumer;
 
     public static NetworkFragment newInstance(File cacheDir) {
@@ -42,15 +42,15 @@ public class NetworkFragment extends Fragment {
 
     public void getWeatherList(final Consumer<WeatherList> consumer) {
         getConsumer = consumer;
-        if (results == null) {
+        if (weatherList == null) {
             Call<WeatherList> call = service.getWeatherList(RestClient.WEATHER_YQL
                     , RestClient.JSON_FORMAT);
             call.enqueue(new Callback<WeatherList>() {
                 @Override
                 public void onResponse(Call<WeatherList> call, Response<WeatherList> response) {
                     if (response.isSuccessful()) {
-                        results = response.body();
-                        getConsumer.apply(results);
+                        weatherList = response.body();
+                        getConsumer.apply(weatherList);
                     } else {
                         showNetError();
                     }
@@ -62,8 +62,12 @@ public class NetworkFragment extends Fragment {
                 }
             });
         } else {
-            getConsumer.apply(results);
+            getConsumer.apply(weatherList);
         }
+    }
+
+    public void setWeatherList(@Nullable WeatherList weatherList) {
+        this.weatherList = weatherList;
     }
 
     private void showNetError() {
