@@ -24,9 +24,9 @@ public class WeatherListDeserializer extends JsonDeserializer<WeatherList> {
 
         for (JsonNode n : node.path("query").path("results").path("channel")) {
             JsonNode weather = n.path("item").path("condition");
-            int code = weather.path("code").asInt();
-            int temp = weather.path("temp").asInt();
-            String condition = weather.path("condition").asText();
+            final int code = weather.path("code").asInt();
+            final int temp = weather.path("temp").asInt();
+            final String condition = weather.path("text").asText();
             weatherList.add(new Weather(code, temp, condition));
         }
         return new WeatherList(weatherList);

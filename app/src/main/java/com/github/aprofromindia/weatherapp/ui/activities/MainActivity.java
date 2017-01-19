@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupViews(ActivityMainBinding binding) {
-        RecyclerView recyclerView = binding.recyclerView;
+        final RecyclerView recyclerView = binding.recyclerView;
         refreshLayout = binding.refreshLayout;
         progressBar = binding.progressBar;
 
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                ((WeatherAdapter) recyclerView.getAdapter()).setWeatherList(null);
                 getWeatherList(networkFragment);
             }
         });

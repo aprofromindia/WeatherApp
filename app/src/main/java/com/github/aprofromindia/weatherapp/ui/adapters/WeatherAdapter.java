@@ -19,8 +19,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
     @Override
     public WeatherViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        ItemWeatherBinding binding = DataBindingUtil.inflate(inflater,
-                R.layout.item_weather, parent, false);
+        ItemWeatherBinding binding = ItemWeatherBinding.inflate(inflater, parent, false);
         return new WeatherViewHolder(binding);
     }
 
